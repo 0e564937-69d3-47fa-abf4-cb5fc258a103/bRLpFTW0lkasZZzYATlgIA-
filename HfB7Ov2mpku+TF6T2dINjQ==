@@ -1,0 +1,420 @@
+local LocalPlayer = game:GetService('Players').LocalPlayer
+
+function claimSetAndLeave(booth, text, image)
+	if typeof(image) == "table" then
+		image = image[math.random(1, #image)]
+	end
+
+	if typeof(text) == "table" then
+		text = text[math.random(1, #text)]
+	end
+
+	fireclickdetector(booth.Board.ClickDetector)
+	game:GetService("ReplicatedStorage").Booth:FireServer("Update",{["Icon"] = image,["Text"] = text})
+	game:GetService("ReplicatedStorage").Booth:FireServer("Abandon")
+end
+
+function changeTextAndImage(text, image)
+	if typeof(image) == "table" then
+		image = image[math.random(1, #image)]
+	end
+
+	if typeof(text) == "table" then
+		text = text[math.random(1, #text)]
+	end
+
+	game:GetService("ReplicatedStorage").Booth:FireServer("Update",{["Icon"] = image,["Text"] = text})
+end
+
+function restoreBooth(booth)
+	fireclickdetector(booth.Board.ClickDetector)
+	game:GetService("ReplicatedStorage").Booth:FireServer("Abandon")
+end
+
+-- start all things
+local allBoothsGC = game:GetService("Workspace")["Booth Blocks"]:GetChildren()
+
+local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/TheJoaqun/UI-Librarys/UI-Library/UI%20Librarys%20Loadstring/DiscordLib.lua")()
+local Notify = loadstring(game:HttpGet(('https://raw.githubusercontent.com/BoredStuff2/notify-lib/main/lib'),true))()
+Notify.prompt('The Boother >> Welcome!', 'The Boother made by BoredStuff. SayBored#0021')
+
+function prompa(title, body, closing)
+	spawn(function()
+		Notify.prompt(title, body, closing)
+	end)
+end
+
+local win = DiscordLib:Window("The Boother")
+
+local serv = win:Server("Boother", "rbxassetid://4034483344")
+local FEServer = win:Server("Other Scripts", "rbxassetid://7360649366")
+local credits = win:Server("Credits", "rbxassetid://5832745500")
+
+-- credits server
+
+local creditsChannel = credits:Channel("Credits")
+creditsChannel:Label("Made by SayBored#0021\nSome functions found out by: Breadstick#3033")
+
+creditsChannel:Button("Copy Discord Invite", function()
+	setclipboard('https://discord.link/bscripts')
+	prompa('Discord Invite', 'Copied to clipboard.')
+end)
+
+-- main srver
+
+local Booths = serv:Channel("Booths Heck")
+local BoothHider = serv:Channel('Booth Name Hider')
+local CustomBooths = serv:Channel("Customize Booths")
+local BoothToggles = serv:Channel("Booth Toggles")
+
+Booths:Label("Booths hecker. Running this functions are safe.")
+
+Booths:Button("Hitler Booths", function()
+	local booths = game:GetService("Workspace")["Booth Blocks"]:GetChildren()
+	game:GetService("ReplicatedStorage").Booth:FireServer("Abandon")
+	for i, v in pairs(booths) do
+		claimSetAndLeave(v, "HIT LHE R", {"8255956310", "8261681162"})
+		claimSetAndLeave(v, "HIT LHE R", {"8255956310", "8261681162"})
+	end
+end)
+
+Booths:Button("Rickroll Booths", function()
+	local booths = game:GetService("Workspace")["Booth Blocks"]:GetChildren()
+	game:GetService("ReplicatedStorage").Booth:FireServer("Abandon")
+	local rr_text = {
+		"Never gonna give you up.",
+		"Never gonna let you down.",
+		"Never gonna run around and desert you."
+	}
+	local rr_img = {
+		"4743994030",
+		"53349584",
+		"6775851810",
+		"7422653229",
+		"18673684",
+		"270641796"
+	}
+	for i, v in pairs(booths) do
+		claimSetAndLeave(v, rr_text, rr_img)
+		claimSetAndLeave(v, rr_text, rr_img)
+	end
+end)
+
+Booths:Button("Baldify Booths", function()
+	local booths = game:GetService("Workspace")["Booth Blocks"]:GetChildren()
+	game:GetService("ReplicatedStorage").Booth:FireServer("Abandon")
+	
+	local baldImages = {
+		"7246013130",
+		"7437528494",
+		"5991312886",
+		"5392106661",
+		"7185855283",
+		"6445907667",
+		"7581932203",
+	}
+	
+	for i, v in pairs(booths) do
+		claimSetAndLeave(v, "BALD! RUN", baldImages)
+		claimSetAndLeave(v, "BALD! RUN", baldImages)
+	end
+end)
+
+Booths:Button("Bacon Sucks Booths", function()
+	local booths = game:GetService("Workspace")["Booth Blocks"]:GetChildren()
+	game:GetService("ReplicatedStorage").Booth:FireServer("Abandon")
+
+	local baldImages = {
+		"954226747",
+		"6044022752",
+		"7866542845",
+		"8209551364",
+		"7259889479",
+		"6445907667",
+		"7965449435",
+	}
+
+	for i, v in pairs(booths) do
+		claimSetAndLeave(v, "BACON SUCKS", baldImages)
+		claimSetAndLeave(v, "BACON SUCKS", baldImages)
+	end
+end)
+
+Booths:Button("Bacon 4LIFE Booths", function()
+	local booths = game:GetService("Workspace")["Booth Blocks"]:GetChildren()
+	game:GetService("ReplicatedStorage").Booth:FireServer("Abandon")
+
+	local baldImages = {
+		"796768151",
+		"6044022752",
+		"7866542845",
+		"8209551364",
+		"7259889479",
+		"6445907667",
+		"7965449435",
+		"954226747",
+		"954226747",
+		"954226747",
+	}
+
+	for i, v in pairs(booths) do
+		claimSetAndLeave(v, "Bacon 4LIFE", baldImages)
+		claimSetAndLeave(v, "Bacon 4LIFE", baldImages)
+	end
+end)
+
+Booths:Button("script spam", function()
+	local booths = game:GetService("Workspace")["Booth Blocks"]:GetChildren()
+	game:GetService("ReplicatedStorage").Booth:FireServer("Abandon")
+
+	local baldImages = {
+		"7951794902",
+		"7040518283"
+	}
+
+	for i, v in pairs(booths) do
+		claimSetAndLeave(v, "The Boother SCRIPT | P4Z5brH6Gf", baldImages)
+		claimSetAndLeave(v, "The Boother SCRIPT | P4Z5brH6Gf", baldImages)
+	end
+end)
+
+Booths:Button("SATAN BOOTHS", function()
+	local booths = game:GetService("Workspace")["Booth Blocks"]:GetChildren()
+	game:GetService("ReplicatedStorage").Booth:FireServer("Abandon")
+
+	local baldImages = {
+		"7284807534",
+		"68854060",
+		"212720806"
+	}
+
+	for i, v in pairs(booths) do
+		claimSetAndLeave(v, "SATAN's HERE | you die this night", baldImages)
+		claimSetAndLeave(v, "SATAN's HERE | you die this night", baldImages)
+	end
+end)
+
+Booths:Button("LEGO HACKING BOOTHS", function()
+	local booths = game:GetService("Workspace")["Booth Blocks"]:GetChildren()
+	game:GetService("ReplicatedStorage").Booth:FireServer("Abandon")
+
+	local baldImages = {
+		"5238452010",
+		"7396977835",
+		"4700687169",
+		"7741662792",
+		"6500037677",
+		"5346720507",
+		"7705121089",
+		"6469679051",
+	}
+
+	for i, v in pairs(booths) do
+		claimSetAndLeave(v, "lego hacked", baldImages)
+		claimSetAndLeave(v, "lego hacked", baldImages)
+	end
+end)
+
+Booths:Button("VERY LONG TEXT", function()
+	local booths = game:GetService("Workspace")["Booth Blocks"]:GetChildren()
+	game:GetService("ReplicatedStorage").Booth:FireServer("Abandon")
+
+	local baldImages = {
+		"0",
+	}
+
+	for i, v in pairs(booths) do
+		claimSetAndLeave(v, "We're no strangers to love You know the rules and so do I A full commitment's what I'm thinking of You wouldn't get this from any other guy I just wanna tell you how I'm feeling Gotta make you understand Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you We've known each other for so long Your heart's been aching but you're too shy to say it Inside we both know what's been going on We know the game and we're gonna play it And if you ask me how I'm feeling Don't tell me you're too blind to see Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you (Give you up) (Ooh) Never gonna give, never gonna give (Give you up) We've known each other for so long Your heart's been aching but you're too shy to say it Inside we both know what's been going on We know the game and we're gonna play it I just wanna tell you how I'm feeling Gotta make you understand Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye", baldImages)
+		claimSetAndLeave(v, "We're no strangers to love You know the rules and so do I A full commitment's what I'm thinking of You wouldn't get this from any other guy I just wanna tell you how I'm feeling Gotta make you understand Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you We've known each other for so long Your heart's been aching but you're too shy to say it Inside we both know what's been going on We know the game and we're gonna play it And if you ask me how I'm feeling Don't tell me you're too blind to see Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you (Give you up) (Ooh) Never gonna give, never gonna give (Give you up) We've known each other for so long Your heart's been aching but you're too shy to say it Inside we both know what's been going on We know the game and we're gonna play it I just wanna tell you how I'm feeling Gotta make you understand Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye", baldImages)
+	end
+end)
+
+Booths:Button("EMPTY TEXT", function()
+	local booths = game:GetService("Workspace")["Booth Blocks"]:GetChildren()
+	game:GetService("ReplicatedStorage").Booth:FireServer("Abandon")
+
+	local baldImages = {
+		"0",
+	}
+
+	for i, v in pairs(booths) do
+		claimSetAndLeave(v, "", baldImages)
+		claimSetAndLeave(v, "", baldImages)
+	end
+end)
+
+Booths:Seperator()
+
+Booths:Label("Restore all booths to 'Click to claim'")
+Booths:Button("Restore Booths", function()
+	local booths = game:GetService("Workspace")["Booth Blocks"]:GetChildren()
+	game:GetService("ReplicatedStorage").Booth:FireServer("Abandon")
+	for i, v in pairs(booths) do
+		restoreBooth(v)
+	end
+end)
+
+local customize = {}
+customize.icon = "you didnt pressed enter"
+customize.text = "4982901583"
+customize.ctype = "String"
+
+CustomBooths:Label('Customize Booths')
+CustomBooths:Label('INFO: TO WORK YOU NEED TO PRESS ENTER.\nWhen you press "enter" the text will remove but\nit will still be saved.')
+
+CustomBooths:Seperator()
+
+CustomBooths:Dropdown("Booths Customize Mode",{"String","Table"}, function(bool)
+	customize.ctype = bool
+
+	if bool == "String" then
+		customize.icon = customize.icon[1]
+		customize.text = customize.text[1]
+	else
+		customize.icon = {customize.icon}
+		customize.text = {customize.text}
+	end
+end)
+
+CustomBooths:Seperator()
+
+CustomBooths:Textbox("Booths Text", "Name here", true, function(t)
+	if customize.ctype == "String" then
+		customize.text = t
+	else
+		table.insert(customize.text, t)
+	end
+end)
+
+CustomBooths:Textbox("Booths Image (just id not rbxassetid://)", "ID here", true, function(t)
+	if customize.ctype == "String" then
+		customize.icon = t
+	else
+		table.insert(customize.icon, t)
+	end
+end)
+
+CustomBooths:Button("Customize Booths", function()
+	game:GetService("ReplicatedStorage").Booth:FireServer("Abandon")
+	local booths = game:GetService("Workspace")["Booth Blocks"]:GetChildren()
+
+	for i, v in pairs(booths) do
+		claimSetAndLeave(v, customize.text, customize.icon)
+	end
+end)
+
+
+local ServerFunctions = serv:Channel('Server Functions')
+
+ServerFunctions:Button("Rejoin", function()
+	Players = game:GetService("Players")
+	Players.LocalPlayer:Kick("\nRejoining server.")
+	wait()
+	game:GetService('TeleportService'):Teleport(game.PlaceId, Players.LocalPlayer)
+end)
+
+ServerFunctions:Button("Abandon Booth", function()
+	game:GetService("ReplicatedStorage").Booth:FireServer("Abandon")
+end)
+
+local singing = false
+
+function typetext(text, icon)
+
+	for i = 1, #text do
+		changeTextAndImage(string.sub(text, 1, i), icon)
+		wait(0.07)
+	end
+end
+
+function sing(tbl)
+	singing = true
+	for i, v in pairs(tbl) do
+		print(v)
+		typetext(v, "6898212728")
+		wait(1)
+		if not singing then break end
+	end
+end
+
+BoothToggles:Toggle("RICKROLL > YOUR BOOTH. (very laggy)", false, function(bool)
+	singing = bool
+	sing({
+		"We're no strangers to love",
+		"You know the rules and so do I",
+		"A full commitment's what I'm thinking of",
+		"You wouldn't get this from any other guy",
+		"I just wanna tell you how I'm feeling",
+		"Gotta make you understand",
+		"And if you ask me how I'm feeling",
+		"Don't tell me you're too blind to see",
+
+		"Never gonna give you up",
+		"Never gonna let you down",
+		"Never gonna run around and desert you",
+		"Nеver gonna make you cry",
+		"Nevеr gonna say goodbye",
+		"Never gonna tell a lie and hurt you",
+	})
+end)
+
+local hideName = false
+local hidenametext = "Hidden"
+
+function hidenamefun(Description)
+	if hideName then
+		local s,e = pcall(function()
+			if string.match(Description.Text, LocalPlayer.DisplayName) or string.match(Description.Text, LocalPlayer.Name) then
+				changeTextAndImage(hidenametext, "0")
+			end
+		end)
+
+		if not s then
+			prompa('Error.', e)
+		end
+	end
+end
+
+function aa(p) 
+	for i, v in pairs(p:GetChildren()) do
+		if v:FindFirstChildWhichIsA('ClickDetector') then
+			local cd = v:FindFirstChildWhichIsA('ClickDetector')
+			local Description = cd.Parent.BoothGui.BoothFrame.Description
+			Description.Changed:Connect(function()
+				hidenamefun(Description)
+			end)
+
+			cd.MouseClick:Connect(function()
+				wait(1)
+				hidenamefun(Description)
+			end)
+		end
+
+		if #v:GetChildren() >= 1 then
+			aa(v)
+		end
+
+	end    
+end
+
+aa(workspace)
+
+BoothHider:Toggle("Hide Booth Name", false, function(bool)
+	hideName = bool
+	print(hideName)
+end)
+
+BoothHider:Textbox("Hidden Text String", "text here", true, function(t)
+	hidenametext = t
+end)
+
+-- other scripts Server
+
+local Partnered = FEServer:Channel("Partner Scripts")
+
+Partnered:Button("BreadStick Script", function()
+	local url = "https://raw.githubusercontent.com/a8hdb907awbd907abd7/tbp/main/TBP"
+	loadstring(game:HttpGet((url),true))()
+end)
+
+Partnered:Label("More scripts coming soon.")
